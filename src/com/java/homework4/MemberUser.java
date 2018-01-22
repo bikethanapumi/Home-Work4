@@ -8,7 +8,7 @@ public class MemberUser extends User {
 	public String member_type;
 
 	public MemberUser() {
-
+		this.apply_date = this.date + "";
 	}
 
 	public MemberUser(String username, String member_type, String password) {
