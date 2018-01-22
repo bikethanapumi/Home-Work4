@@ -19,8 +19,10 @@ public class HashFunction {
 			if (hex.length() == 1) {
 				sb.append(0);
 				sb.append(hex.charAt(hex.length() - 1));
+				
 			} else {
 				sb.append(hex.substring(hex.length() - 2));
+				
 			}
 		}
 		
