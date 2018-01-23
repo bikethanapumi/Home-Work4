@@ -7,7 +7,7 @@ public class DepositSaving implements Profitable, Tenurable {
 	public double getConditionPeriod() {
 		// TODO Auto-generated method stub
 		this.conditionPeriod = 0.0;
-		System.out.println();
+		System.out.println(this.conditionPeriod);
 		return 0.0;
 	}
 
@@ -16,9 +16,11 @@ public class DepositSaving implements Profitable, Tenurable {
 		// TODO Auto-generated method stub
 		if (month_invested >= 1) {
 			System.out.println("true");
+			System.out.println("----------------------------------------------");
 			return true;
 		} else {
 			System.out.println("false");
+			System.out.println("----------------------------------------------");
 			return false;
 		}
 
@@ -28,18 +30,19 @@ public class DepositSaving implements Profitable, Tenurable {
 	public double getInterrest() {
 		// TODO Auto-generated method stub
 		this.interrest = 0.0025;
+		System.out.println(this.interrest);
 		return this.interrest;
 	}
 
 	@Override
 	public double calculateProfit(double capital, int month_invested) {
 		// TODO Auto-generated method stub
-
 		this.capital = capital;
 		// TODO Auto-generated method stub
 		if (month_invested >= 1) {
-
-			this.profit = (0.0025 * capital) * month_invested;
+			double perYear=(0.0025 * capital)/12;
+			
+			this.profit = perYear*(double)month_invested;
 			return this.profit;
 		} else {
 			return this.totalProfit = capital;
@@ -52,8 +55,8 @@ public class DepositSaving implements Profitable, Tenurable {
 		this.capital = capital;
 		// TODO Auto-generated method stub
 		if (month_invested >= 1) {
-			
-			this.totalProfit = ((0.0025 * capital) * month_invested) + capital;
+			double calProfit=calculateProfit(capital,month_invested);
+			this.totalProfit = calProfit + capital;
 			return this.totalProfit;
 		} else {
 			return this.totalProfit = capital;

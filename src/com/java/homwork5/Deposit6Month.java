@@ -16,9 +16,11 @@ public class Deposit6Month implements Profitable, Tenurable {
 		// TODO Auto-generated method stub
 		if (month_invested >= 6) {
 			System.out.println("true");
+			System.out.println("----------------------------------------------");
 			return true;
 		} else {
 			System.out.println("false");
+			System.out.println("----------------------------------------------");
 			return false;
 		}
 	}
@@ -27,6 +29,7 @@ public class Deposit6Month implements Profitable, Tenurable {
 	public double getInterrest() {
 		// TODO Auto-generated method stub
 		this.interrest = 0.01;
+		System.out.println(this.interrest);
 		return this.interrest;
 	}
 
@@ -49,8 +52,8 @@ public class Deposit6Month implements Profitable, Tenurable {
 		this.capital = capital;
 		// TODO Auto-generated method stub
 		if (month_invested >= 6) {
-			int countMonth = month_invested / 6;
-			this.totalProfit = ((0.01 * capital) * countMonth) + capital;
+			double calProfix=calculateProfit(capital,month_invested);
+			this.totalProfit = calProfix + capital;
 			return this.totalProfit;
 		} else {
 			return this.totalProfit = capital;
