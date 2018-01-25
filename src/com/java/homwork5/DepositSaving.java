@@ -1,13 +1,14 @@
 package com.java.homwork5;
 
 public class DepositSaving implements Profitable, Tenurable {
-	double profit, totalProfit, interrest, capital,conditionPeriod;
+	double profit, totalProfit, interrest, capital,conditionPeriod,
+	month_invested;
 
 	@Override
 	public double getConditionPeriod() {
 		// TODO Auto-generated method stub
 		this.conditionPeriod = 0.0;
-		System.out.println(this.conditionPeriod);
+		System.out.println("Condition Period is"+this.conditionPeriod);
 		return 0.0;
 	}
 
@@ -15,11 +16,11 @@ public class DepositSaving implements Profitable, Tenurable {
 	public boolean isTenurable(int month_invested) {
 		// TODO Auto-generated method stub
 		if (month_invested >= 1) {
-			System.out.println("true");
+			System.out.println("Tenurable is true");
 			System.out.println("----------------------------------------------");
 			return true;
 		} else {
-			System.out.println("false");
+			System.out.println("Tenurable is false");
 			System.out.println("----------------------------------------------");
 			return false;
 		}
@@ -30,7 +31,7 @@ public class DepositSaving implements Profitable, Tenurable {
 	public double getInterrest() {
 		// TODO Auto-generated method stub
 		this.interrest = 0.0025;
-		System.out.println(this.interrest);
+		//System.out.println("Interest is 0.25 %");
 		return this.interrest;
 	}
 
@@ -38,6 +39,7 @@ public class DepositSaving implements Profitable, Tenurable {
 	public double calculateProfit(double capital, int month_invested) {
 		// TODO Auto-generated method stub
 		this.capital = capital;
+		this.month_invested=month_invested;
 		// TODO Auto-generated method stub
 		if (month_invested >= 1) {
 			double perYear=(0.0025 * capital)/12;
@@ -68,7 +70,7 @@ public class DepositSaving implements Profitable, Tenurable {
 	public String printCondition() {
 		// TODO Auto-generated method stub
 		String Condition = "if you deposit 12 month , you will get 0.25% of money deposit" + "\nYour deposit :"
-				+ this.capital + "\nYour Profit :" + this.profit + "\nTotal :" + this.totalProfit;
+				+ this.capital +"\nYour Month Invested :"+this.month_invested+ "\nYour Profit :" + this.profit + "\nTotal :" + this.totalProfit;
 		System.out.println(Condition);
 		return Condition;
 	}
